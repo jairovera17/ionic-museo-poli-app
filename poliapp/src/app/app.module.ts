@@ -11,6 +11,8 @@ import { TabsPage } from '../pages/tabs/tabs';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { QuestionarioPage } from '../pages/questionario/questionario';
+import { ListMasterPage } from '../pages/list-master/list-master';
+import { ProvItemsProvider } from '../providers/prov-items/prov-items';
 
 @NgModule({
   declarations: [
@@ -19,7 +21,8 @@ import { QuestionarioPage } from '../pages/questionario/questionario';
     ContactPage,
     HomePage,
     TabsPage,
-    QuestionarioPage
+    QuestionarioPage,
+    ListMasterPage
   ],
   imports: [
     BrowserModule,
@@ -32,12 +35,14 @@ import { QuestionarioPage } from '../pages/questionario/questionario';
     ContactPage,
     HomePage,
     QuestionarioPage,
-    TabsPage
+    TabsPage,
+    ListMasterPage
   ],
   providers: [
     StatusBar,
     SplashScreen,
-    {provide: ErrorHandler, useClass: IonicErrorHandler}
+    {provide: ErrorHandler, useClass: IonicErrorHandler},
+    ProvItemsProvider
   ]
 })
 export class AppModule {}
