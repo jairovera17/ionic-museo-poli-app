@@ -23,30 +23,33 @@
         <hr>
         <ion-item><strong>Tu Respuesta:</strong></ion-item>
 
-        <ion-segment [(ngModel)]="item.selected" color="primary">
-            <ion-segment-button value="A">
+        <ion-segment [(ngModel)]="item.selected" color="primary" >
+            <ion-segment-button value="A" (click)="cambiar_slide()">
               A
             </ion-segment-button>
-            <ion-segment-button value="B">
+            <ion-segment-button value="B" (click)="cambiar_slide()">
               B
             </ion-segment-button>
-            <ion-segment-button value="C">
+            <ion-segment-button value="C" (click)="cambiar_slide()">
               C
               </ion-segment-button>
-            <ion-segment-button value="D">
+            <ion-segment-button value="D" (click)="cambiar_slide()">
               D
               </ion-segment-button>
         </ion-segment> 
       </ion-card>
       
     </ion-slide>
+
+
+
     <ion-slide>
       <ion-card>
         <ion-card-header>
           Tus Respuestas
         </ion-card-header>
       </ion-card>
-      <ion-card *ngFor="let item of all_preguntas; let i = index">
+      <ion-card *ngFor="let item of all_preguntas; let i = index" (click)="return_to_pregunta(i)">
         <ion-card-content>
           <ion-grid>
             <ion-row>
@@ -58,12 +61,7 @@
           </ion-grid>
         </ion-card-content>
       </ion-card>
-        <ion-card>
-            <ion-card-header>
-              <button ion-button (click)="get_score()">hola</button>
-              Puntuacion: {{puntuacion}}
-            </ion-card-header>
-          </ion-card>
+      <button ion-button (click)="fin_juego()">Finalizar</button>
     </ion-slide>
 
   </ion-slides>

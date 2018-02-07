@@ -1,6 +1,9 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
-import { HomePage } from '../home/home';
+import { JuegoPage } from '../juego/juego';
+import { ViewChild } from '@angular/core';
+import { Slides } from 'ionic-angular';
+import { PuntuacionPage } from '../puntuacion/puntuacion';
 
 /**
  * Generated class for the QuestionarioPage page.
@@ -15,16 +18,20 @@ import { HomePage } from '../home/home';
   templateUrl: 'questionario.html',
 })
 export class QuestionarioPage {
+  @ViewChild(Slides) slides: Slides;
+
 
   puntuacion: number;
   all_preguntas: Pregunta[]=[];
+  salir: boolean = true;
 
   constructor(public navCtrl: NavController, public navParams: NavParams) {
   }
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad QuestionarioPage');
+    this.salir = true;
   }
+
 
   ionViewWillEnter(){
 
@@ -37,13 +44,31 @@ export class QuestionarioPage {
   }
 
 
-  get_score(){
+  fin_juego(){
     this.puntuacion=0;
     for (let item of this.all_preguntas){
       if (item.selected === item.respuesta)
         this.puntuacion+=item.puntos;
     }
-    this.navCtrl.setRoot(HomePage);
+    this.salir = false;
+    this.navCtrl.setRoot(PuntuacionPage,{
+      score : this.puntuacion
+    });
+  }
+
+  cambiar_slide(){
+    this.slides.slideNext();
+
+  }
+
+  return_to_pregunta(i:number){
+    this.slides.slideTo(i,500);
+  }
+
+  ionViewDidLeave(){
+    if(this.salir){
+      this.navCtrl.setRoot(JuegoPage);
+    }
   }
 
   

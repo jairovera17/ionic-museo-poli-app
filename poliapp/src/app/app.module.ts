@@ -13,6 +13,8 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 import { QuestionarioPage } from '../pages/questionario/questionario';
 import { ListMasterPage } from '../pages/list-master/list-master';
 import { ProvItemsProvider } from '../providers/prov-items/prov-items';
+import { JuegoPage } from '../pages/juego/juego';
+import { PuntuacionPage } from '../pages/puntuacion/puntuacion';
 
 @NgModule({
   declarations: [
@@ -22,7 +24,9 @@ import { ProvItemsProvider } from '../providers/prov-items/prov-items';
     HomePage,
     TabsPage,
     QuestionarioPage,
-    ListMasterPage
+    ListMasterPage,
+    JuegoPage,
+    PuntuacionPage
   ],
   imports: [
     BrowserModule,
@@ -36,7 +40,9 @@ import { ProvItemsProvider } from '../providers/prov-items/prov-items';
     HomePage,
     QuestionarioPage,
     TabsPage,
-    ListMasterPage
+    ListMasterPage,
+    JuegoPage,
+    PuntuacionPage
   ],
   providers: [
     StatusBar,
