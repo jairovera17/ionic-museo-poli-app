@@ -18,6 +18,7 @@ import { ProvItemsProvider } from '../../providers/prov-items/prov-items';
 export class ListMasterPage {
 
   currentItems: Item[];
+  
   constructor(public navCtrl: NavController, public navParams: NavParams,public items: ProvItemsProvider) {
     this.currentItems = this.items.query();
   }
