@@ -11,10 +11,11 @@ import { Pregunta } from '../../misClasses/Pregunta';
 export class QuestProvider {
 
 
-  defaultPregunta: Pregunta = new Pregunta('Cuantos años tienes?','Nose bro disculpa','Tigre dientes de sable','Elefantes sobre agua','alais chupa sangre','A',100);
+  //Proveedor de preguntas
   constructor() {
   }
 
+  //regresa las preguntas del arreglo - Ver clase Pregunta deben ser 4 preguntas
   query(params?:any){
     let items:Pregunta[] = [
       new Pregunta('Cuantos años tienes?','Nose bro disculpa','Tigre dientes de sable','Elefantes sobre agua','alais chupa sangre','A',100),

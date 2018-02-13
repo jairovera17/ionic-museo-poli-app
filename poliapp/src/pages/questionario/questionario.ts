@@ -23,19 +23,20 @@ export class QuestionarioPage {
   @ViewChild(Slides) slides: Slides;
 
 
-  puntuacion: number;
-  all_preguntas: Pregunta[]=[];
-  salir: boolean = true;
+  puntuacion: number;               //Puntuacion total 
+  all_preguntas: Pregunta[]=[];     //Preguntas de la ronda
+  salir: boolean = true;            //Flag para saber si el usuario termina el juego o abandona
 
   constructor(public navCtrl: NavController, public navParams: NavParams, public items: QuestProvider) {
-  ///  this.all_preguntas = this.items.query();
   }
+
 
   ionViewDidLoad() {
     this.salir = true;
   }
 
 
+  //Se obtiene las preguntas de proveedor QuestProvider
   ionViewWillEnter(){
 
     this.puntuacion = 0;
@@ -44,6 +45,7 @@ export class QuestionarioPage {
   }
 
 
+  //Se calcula la puntuacion total y se navega a la pagina que muestra los resultados
   fin_juego(){
     this.puntuacion=0;
     for (let item of this.all_preguntas){
@@ -56,15 +58,16 @@ export class QuestionarioPage {
     });
   }
 
+  //Al seleccionar una respuesta, automaticamente se sigue a la siguiente pregunta(slide)
   cambiar_slide(){
     this.slides.slideNext();
-
   }
-
+//Regresa a un slide especifico
   return_to_pregunta(i:number){
     this.slides.slideTo(i,500);
   }
 
+  //Si el usuario abandona el juego, se regresa al menu de actividades-juegos  
   ionViewDidLeave(){
     if(this.salir){
       this.navCtrl.setRoot(JuegoPage);
