@@ -4,6 +4,8 @@ import { JuegoPage } from '../juego/juego';
 import { ViewChild } from '@angular/core';
 import { Slides } from 'ionic-angular';
 import { PuntuacionPage } from '../puntuacion/puntuacion';
+import { QuestProvider } from '../../providers/quest/quest';
+import { Pregunta } from '../../misClasses/Pregunta';
 
 /**
  * Generated class for the QuestionarioPage page.
@@ -21,29 +23,29 @@ export class QuestionarioPage {
   @ViewChild(Slides) slides: Slides;
 
 
-  puntuacion: number;
-  all_preguntas: Pregunta[]=[];
-  salir: boolean = true;
+  puntuacion: number;               //Puntuacion total 
+  all_preguntas: Pregunta[]=[];     //Preguntas de la ronda
+  salir: boolean = true;            //Flag para saber si el usuario termina el juego o abandona
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, public items: QuestProvider) {
   }
+
 
   ionViewDidLoad() {
     this.salir = true;
   }
 
 
+  //Se obtiene las preguntas de proveedor QuestProvider
   ionViewWillEnter(){
 
     this.puntuacion = 0;
     this.all_preguntas=[];
-    this.all_preguntas.push(new Pregunta('Cuantos años tienes?','Nose bro disculpa','Tigre dientes de sable','Elefantes sobre agua','alais chupa sangre','A',100));
-    this.all_preguntas.push(new Pregunta('Cuantos años tienes?','12','13','14','15','B',75));
-    this.all_preguntas.push(new Pregunta('Cuantos años tienes?','12','13','14','15','C',50));
-    this.all_preguntas.push(new Pregunta('Cuantos años tienes?','12','13','14','15','D',25));
+    this.all_preguntas=this.items.query();
   }
 
 
+  //Se calcula la puntuacion total y se navega a la pagina que muestra los resultados
   fin_juego(){
     this.puntuacion=0;
     for (let item of this.all_preguntas){
@@ -56,33 +58,19 @@ export class QuestionarioPage {
     });
   }
 
+  //Al seleccionar una respuesta, automaticamente se sigue a la siguiente pregunta(slide)
   cambiar_slide(){
     this.slides.slideNext();
-
   }
-
+//Regresa a un slide especifico
   return_to_pregunta(i:number){
     this.slides.slideTo(i,500);
   }
 
+  //Si el usuario abandona el juego, se regresa al menu de actividades-juegos  
   ionViewDidLeave(){
     if(this.salir){
       this.navCtrl.setRoot(JuegoPage);
     }
-  }
-
-  
-
-}
-
-class Pregunta{
-  constructor(public pregunta:string,
-  public optionA:string,
-  public optionB:string,
-  public optionC:string,
-  public optionD:string,
-  public respuesta:string,
-  public puntos:number,
-  public selected?:string){
   }
 }

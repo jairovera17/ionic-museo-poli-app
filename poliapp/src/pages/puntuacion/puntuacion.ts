@@ -22,14 +22,12 @@ export class PuntuacionPage {
     this.puntuacion = navParams.get("score");
   }
 
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad PuntuacionPage');
-  }
-
+  //Al salir de esta pagina, se abandona el juego actual
   ionViewDidLeave(){
     this.navCtrl.setRoot(JuegoPage);
   }
 
+  //Al finalizar el juego el usuario puede salir y volver
   salir(){
     this.navCtrl.setRoot(JuegoPage);
   }

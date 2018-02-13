@@ -19,11 +19,10 @@ export class JuegoPage {
   constructor(public navCtrl: NavController, public navParams: NavParams) {
   }
 
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad JuegoPage');
-  }
+  
 
   iniciar_juego(){
+    //Esta funcion coloca la pagina questionario en el root de la navegacion
     this.navCtrl.setRoot(QuestionarioPage);
   }
 

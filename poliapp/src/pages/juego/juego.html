@@ -7,7 +7,7 @@
 <ion-header>
 
   <ion-navbar >
-    <ion-title>Juegos</ion-title>
+    <ion-title>Juegos - Actividades</ion-title>
   </ion-navbar>
 
 </ion-header>
@@ -15,14 +15,23 @@
 
 <ion-content padding>
 
-  <ion-card (click)="iniciar_juego()">
+  
+  <ion-card (click)="iniciar_juego()"
+  class="animated bounceInUp">
+  <img   src="assets/imgs/preguntas.jpg" >
+  
     <ion-card-header>
       <strong>Ronda de Preguntas</strong>
     </ion-card-header>
+    
     <ion-card-content>
       Contesta cuatro preguntas acerca del museo para saber cuanto has aprendido en tu visita al museo
+      
     </ion-card-content>
+   
   </ion-card>
+
+ 
 
 </ion-content>
 

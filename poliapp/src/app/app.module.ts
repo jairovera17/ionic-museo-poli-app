@@ -15,6 +15,7 @@ import { ListMasterPage } from '../pages/list-master/list-master';
 import { ProvItemsProvider } from '../providers/prov-items/prov-items';
 import { JuegoPage } from '../pages/juego/juego';
 import { PuntuacionPage } from '../pages/puntuacion/puntuacion';
+import { QuestProvider } from '../providers/quest/quest';
 
 @NgModule({
   declarations: [
@@ -48,7 +49,8 @@ import { PuntuacionPage } from '../pages/puntuacion/puntuacion';
     StatusBar,
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
-    ProvItemsProvider
+    ProvItemsProvider,
+    QuestProvider
   ]
 })
 export class AppModule {}

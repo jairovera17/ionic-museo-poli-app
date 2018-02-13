@@ -5,7 +5,9 @@ import { Item } from '../../models/item';
 @Injectable()
 export class ProvItemsProvider {
 
-  items: Item[]=[];
+  items: Item[]=[];             //Contiene los animales
+
+
 
   defaultItem: any ={
     "name": "Burt Bear",
@@ -14,6 +16,9 @@ export class ProvItemsProvider {
   };
 
   constructor() {
+
+            //Cada item debe tener nombre(name) imagen(profilePic) y informacion(about)
+
     let items = [
       {
         "name": "Burt Bear",
@@ -56,6 +61,10 @@ export class ProvItemsProvider {
       this.items.push(new Item(item));
     }
   }
+
+
+  //Regresa los items si no hay parametros 
+  //Si los hay regresa el que coincida
   query(params?: any) {
     if (!params) {
       return this.items;
@@ -74,10 +83,12 @@ export class ProvItemsProvider {
     });
   }
 
+  //Anade mas elementos al arreglo
   add(item: Item) {
     this.items.push(item);
   }
 
+  //Borra elementos del arreglo
   delete(item: Item) {
     this.items.splice(this.items.indexOf(item), 1);
   }
