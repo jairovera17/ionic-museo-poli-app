@@ -61,7 +61,7 @@ Generar apks sin firmar
 ionic cordova build android
 ```
 
-### PlayStore (Google) y AppStore (iOS)
+### Desplegar en PlayStore (Google) y AppStore (iOS)
 Seguir la documentación oficial en :
 
 https://ionicframework.com/docs/v1/guide/publishing.html
