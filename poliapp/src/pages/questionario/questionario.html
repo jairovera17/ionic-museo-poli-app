@@ -13,7 +13,7 @@
 
     <ion-slide *ngFor="let item of all_preguntas">
       <ion-card>
-        <ion-item><strong>{{item.pregunta}}</strong></ion-item>
+        <ion-card-title>{{item.pregunta}}</ion-card-title>
         <ion-list>
             <ion-item><strong>A.- </strong>{{item.optionA}}</ion-item>
             <ion-item><strong>B.- </strong>{{item.optionB}}</ion-item>

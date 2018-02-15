@@ -18,10 +18,10 @@ export class QuestProvider {
   //regresa las preguntas del arreglo - Ver clase Pregunta deben ser 4 preguntas
   query(params?:any){
     let items:Pregunta[] = [
-      new Pregunta('Cuantos años tienes?','Nose bro disculpa','Tigre dientes de sable','Elefantes sobre agua','alais chupa sangre','A',100),
-      new Pregunta('Cuantos años tienes?','12','13','14','15','B',75),
-      new Pregunta('Cuantos años tienes?','12','13','14','15','C',50),
-      new Pregunta('Cuantos años tienes?','12','13','14','15','D',25)
+      new Pregunta('¿Cuál de ellos frecuenta ríos?','Tapir','Piraña','Hoatzín','Medusa','B',100),
+      new Pregunta('¿Cuál de ellos digestión es por Fermentación?','Hoatzín','Tortugas','Sapos','Piraña','A',100),
+      new Pregunta('¿Cuál de ellos tiene veneno hemotóxico?','Anaconda','Pulpo','Colibrí','Equis','D',100),
+      new Pregunta('¿Comó se llama el museo','Poli-Museo','Museo-EPN','Gustavo Orces V.','No se bro disculpa','C',100)
     ];
     return items;
   }
